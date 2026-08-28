@@ -1,0 +1,6 @@
+@MonitorErrores_HostAddress = http://localhost:5163
+
+GET {{MonitorErrores_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
