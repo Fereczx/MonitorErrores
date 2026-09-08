@@ -482,3 +482,5 @@ $RECYCLE.BIN/
 *.swp
 # Base de datos local
 *.db
+# User Secrets
+secrets.json

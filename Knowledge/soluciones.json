@@ -1,0 +1,575 @@
+{
+  "soluciones": [
+    {
+      "codigo": "TIMEOUT",
+      "servicio": "Banco",
+      "problema": "El servicio bancario no responde dentro del tiempo esperado.",
+      "solucionTexto": "Verificar la disponibilidad del servicio bancario y reintentar la operación. Si el problema persiste, revisar la conectividad y los tiempos de espera configurados.",
+      "mensajeUsuario": "No pudimos comunicarnos con el banco. Esperá unos segundos y volvé a intentar.",
+      "fuente": "Documentación oficial del banco",
+      "tipoFuente": "oficial",
+      "confirmada": false,
+      "palabrasClave": [
+        "timeout",
+        "time out",
+        "tiempo de espera",
+        "demora",
+        "demorado",
+        "no responde",
+        "sin respuesta",
+        "respuesta tardia",
+        "expirado",
+        "expirada"
+      ]
+    },
+    {
+      "codigo": "400",
+      "servicio": "API",
+      "problema": "La solicitud enviada a la API no tiene un formato válido o contiene datos incorrectos.",
+      "solucionTexto": "Revisar los datos enviados en la solicitud y verificar que cumplan con el formato requerido por la API.",
+      "mensajeUsuario": "Los datos enviados no son válidos. Verificá la información e intentá nuevamente.",
+      "fuente": "Documentación de la API",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "400",
+        "bad request",
+        "solicitud incorrecta",
+        "request invalida",
+        "datos invalidos",
+        "formato invalido",
+        "parametros invalidos",
+        "peticion invalida"
+      ]
+    },
+    {
+      "codigo": "401",
+      "servicio": "API",
+      "problema": "La solicitud no está autenticada correctamente.",
+      "solucionTexto": "Verificar las credenciales, el token de autenticación y los permisos necesarios para realizar la operación.",
+      "mensajeUsuario": "No pudimos verificar tu acceso. Volvé a iniciar sesión e intentá nuevamente.",
+      "fuente": "Documentación de la API",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "401",
+        "unauthorized",
+        "no autorizado",
+        "autenticacion",
+        "autenticacion fallida",
+        "credenciales",
+        "token invalido",
+        "token vencido",
+        "acceso no autorizado"
+      ]
+    },
+    {
+      "codigo": "403",
+      "servicio": "API",
+      "problema": "El usuario está autenticado pero no tiene permisos suficientes para realizar la operación.",
+      "solucionTexto": "Verificar los permisos y roles asociados al usuario o credencial utilizada.",
+      "mensajeUsuario": "No tenés permisos para realizar esta operación. Comunicate con Atención al Cliente si necesitás ayuda.",
+      "fuente": "Documentación de la API",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "403",
+        "forbidden",
+        "prohibido",
+        "sin permisos",
+        "permiso denegado",
+        "acceso denegado",
+        "no tiene permisos",
+        "rol insuficiente"
+      ]
+    },
+    {
+      "codigo": "404",
+      "servicio": "API",
+      "problema": "El recurso solicitado no fue encontrado.",
+      "solucionTexto": "Verificar que la dirección, identificador o recurso solicitado sea correcto y que continúe disponible.",
+      "mensajeUsuario": "No pudimos encontrar la información solicitada. Intentá nuevamente.",
+      "fuente": "Documentación de la API",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "404",
+        "not found",
+        "no encontrado",
+        "recurso inexistente",
+        "recurso no encontrado",
+        "direccion incorrecta",
+        "url incorrecta"
+      ]
+    },
+    {
+      "codigo": "405",
+      "servicio": "API",
+      "problema": "El método utilizado para realizar la solicitud no está permitido por el recurso.",
+      "solucionTexto": "Verificar que se esté utilizando el método HTTP correcto para el recurso solicitado.",
+      "mensajeUsuario": "No pudimos realizar esta operación. Intentá nuevamente más tarde.",
+      "fuente": "Documentación de la API",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "405",
+        "method not allowed",
+        "metodo no permitido",
+        "metodo incorrecto",
+        "operacion no permitida"
+      ]
+    },
+    {
+      "codigo": "408",
+      "servicio": "API",
+      "problema": "La solicitud tardó demasiado tiempo en completarse.",
+      "solucionTexto": "Reintentar la operación y verificar la conectividad y los tiempos de espera configurados.",
+      "mensajeUsuario": "La operación tardó demasiado. Esperá unos segundos y volvé a intentar.",
+      "fuente": "Documentación de la API",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "408",
+        "request timeout",
+        "tiempo de espera",
+        "solicitud expirada",
+        "solicitud demorada",
+        "tardo demasiado",
+        "timeout"
+      ]
+    },
+    {
+      "codigo": "409",
+      "servicio": "API",
+      "problema": "La solicitud entra en conflicto con el estado actual del recurso.",
+      "solucionTexto": "Verificar el estado actual de la operación o recurso antes de intentar realizar nuevamente la solicitud.",
+      "mensajeUsuario": "La operación no puede realizarse porque existe un conflicto con el estado actual. Intentá nuevamente.",
+      "fuente": "Documentación de la API",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "409",
+        "conflict",
+        "conflicto",
+        "estado actual",
+        "operacion duplicada",
+        "recurso modificado",
+        "solicitud duplicada"
+      ]
+    },
+    {
+      "codigo": "415",
+      "servicio": "API",
+      "problema": "El formato o tipo de contenido enviado no es compatible con la API.",
+      "solucionTexto": "Verificar el Content-Type y el formato de los datos enviados.",
+      "mensajeUsuario": "El formato de los datos enviados no es compatible. Verificá la información e intentá nuevamente.",
+      "fuente": "Documentación de la API",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "415",
+        "unsupported media type",
+        "tipo de contenido",
+        "content type",
+        "formato no compatible",
+        "formato incompatible",
+        "contenido no soportado"
+      ]
+    },
+    {
+      "codigo": "422",
+      "servicio": "API",
+      "problema": "La solicitud tiene un formato válido pero contiene datos que no pueden ser procesados.",
+      "solucionTexto": "Revisar los datos enviados y corregir los campos que no cumplen con las reglas de validación.",
+      "mensajeUsuario": "Algunos datos no son válidos. Revisá la información e intentá nuevamente.",
+      "fuente": "Documentación de la API",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "422",
+        "unprocessable entity",
+        "datos no procesables",
+        "validacion",
+        "error de validacion",
+        "campo invalido",
+        "datos incorrectos"
+      ]
+    },
+    {
+      "codigo": "429",
+      "servicio": "API",
+      "problema": "Se realizaron demasiadas solicitudes en un período corto de tiempo.",
+      "solucionTexto": "Esperar antes de realizar una nueva solicitud y respetar los límites de solicitudes establecidos por el servicio.",
+      "mensajeUsuario": "Se realizaron demasiados intentos. Esperá unos minutos y volvé a intentar.",
+      "fuente": "Documentación de la API",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "429",
+        "too many requests",
+        "demasiadas solicitudes",
+        "limite de solicitudes",
+        "rate limit",
+        "limite alcanzado",
+        "muchos intentos"
+      ]
+    },
+    {
+      "codigo": "500",
+      "servicio": "Servidor",
+      "problema": "Se produjo un error interno en el servidor al procesar la solicitud.",
+      "solucionTexto": "Reintentar la operación y verificar los registros del servidor para determinar la causa del error.",
+      "mensajeUsuario": "Ocurrió un problema interno. Esperá unos segundos y volvé a intentar.",
+      "fuente": "Documentación técnica del servicio",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "500",
+        "internal server error",
+        "error interno",
+        "error del servidor",
+        "fallo del servidor",
+        "servidor fallo"
+      ]
+    },
+    {
+      "codigo": "502",
+      "servicio": "Servidor",
+      "problema": "El servidor recibió una respuesta inválida de otro servidor al procesar la solicitud.",
+      "solucionTexto": "Verificar la disponibilidad del servicio dependiente y reintentar la operación.",
+      "mensajeUsuario": "Uno de los servicios necesarios no respondió correctamente. Esperá unos segundos y volvé a intentar.",
+      "fuente": "Documentación técnica del servicio",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "502",
+        "bad gateway",
+        "gateway",
+        "respuesta invalida",
+        "servidor intermedio",
+        "servicio dependiente",
+        "gateway error"
+      ]
+    },
+    {
+      "codigo": "503",
+      "servicio": "Servidor",
+      "problema": "El servicio no está disponible temporalmente.",
+      "solucionTexto": "Esperar unos minutos y volver a intentar. Si el problema persiste, verificar el estado del servicio.",
+      "mensajeUsuario": "El servicio no está disponible en este momento. Esperá unos minutos y volvé a intentar.",
+      "fuente": "Documentación técnica del servicio",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "503",
+        "service unavailable",
+        "servicio no disponible",
+        "servicio caido",
+        "mantenimiento",
+        "temporalmente no disponible",
+        "indisponible"
+      ]
+    },
+    {
+      "codigo": "504",
+      "servicio": "Servidor",
+      "problema": "El servidor intermedio no recibió una respuesta a tiempo del servicio dependiente.",
+      "solucionTexto": "Verificar la disponibilidad del servicio dependiente y reintentar la operación.",
+      "mensajeUsuario": "No pudimos obtener respuesta del servicio necesario. Esperá unos segundos y volvé a intentar.",
+      "fuente": "Documentación técnica del servicio",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "504",
+        "gateway timeout",
+        "timeout",
+        "gateway",
+        "sin respuesta",
+        "respuesta tardia",
+        "servicio no responde"
+      ]
+    },
+    {
+      "codigo": "PAGO_RECHAZADO",
+      "servicio": "Pagos",
+      "problema": "La operación de pago fue rechazada por el banco, proveedor o medio de pago.",
+      "solucionTexto": "Verificar el motivo del rechazo y los datos del medio de pago antes de volver a intentar la operación.",
+      "mensajeUsuario": "El pago fue rechazado. Verificá los datos del medio de pago e intentá nuevamente.",
+      "fuente": "Documentación del proveedor de pagos",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "pago rechazado",
+        "pago denegado",
+        "rechazo de pago",
+        "transaccion rechazada",
+        "operacion rechazada",
+        "pago no aprobado",
+        "pago fallido"
+      ]
+    },
+    {
+      "codigo": "PAGO_DUPLICADO",
+      "servicio": "Pagos",
+      "problema": "La misma operación de pago fue enviada o registrada más de una vez.",
+      "solucionTexto": "Verificar el identificador de la operación y el estado del pago antes de realizar un nuevo intento.",
+      "mensajeUsuario": "La operación parece haberse realizado más de una vez. No vuelvas a intentar el pago y comunicate con Atención al Cliente.",
+      "fuente": "Documentación del proveedor de pagos",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "pago duplicado",
+        "cobro duplicado",
+        "transaccion duplicada",
+        "operacion duplicada",
+        "pago repetido",
+        "doble cobro",
+        "cobrado dos veces"
+      ]
+    },
+    {
+      "codigo": "PAGO_PENDIENTE",
+      "servicio": "Pagos",
+      "problema": "La operación de pago fue recibida pero todavía no tiene un resultado definitivo.",
+      "solucionTexto": "Consultar el estado de la operación y esperar la confirmación definitiva antes de realizar otro intento.",
+      "mensajeUsuario": "Tu pago todavía está siendo procesado. Esperá la confirmación antes de volver a intentarlo.",
+      "fuente": "Documentación del proveedor de pagos",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "pago pendiente",
+        "pago en proceso",
+        "procesando pago",
+        "transaccion pendiente",
+        "operacion pendiente",
+        "esperando confirmacion",
+        "pago sin confirmar"
+      ]
+    },
+    {
+      "codigo": "SALDO_INSUFICIENTE",
+      "servicio": "Banco",
+      "problema": "El saldo disponible no es suficiente para realizar la operación.",
+      "solucionTexto": "Verificar el saldo disponible y asegurarse de contar con fondos suficientes antes de realizar nuevamente la operación.",
+      "mensajeUsuario": "No hay saldo suficiente para realizar esta operación. Verificá tu saldo e intentá nuevamente.",
+      "fuente": "Documentación del banco",
+      "tipoFuente": "oficial",
+      "confirmada": false,
+      "palabrasClave": [
+        "saldo insuficiente",
+        "fondos insuficientes",
+        "sin saldo",
+        "saldo insuficiente",
+        "fondos insuficientes",
+        "no hay fondos",
+        "saldo disponible"
+      ]
+    },
+    {
+      "codigo": "TARJETA_RECHAZADA",
+      "servicio": "Tarjeta",
+      "problema": "La tarjeta utilizada no fue aceptada para realizar la operación.",
+      "solucionTexto": "Verificar el estado de la tarjeta, los datos ingresados y las condiciones de uso del medio de pago.",
+      "mensajeUsuario": "La tarjeta fue rechazada. Verificá los datos o utilizá otro medio de pago.",
+      "fuente": "Documentación del proveedor de pagos",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "tarjeta rechazada",
+        "tarjeta denegada",
+        "tarjeta no aceptada",
+        "rechazo de tarjeta",
+        "medio de pago rechazado",
+        "tarjeta no aprobada"
+      ]
+    },
+    {
+      "codigo": "TARJETA_VENCIDA",
+      "servicio": "Tarjeta",
+      "problema": "La fecha de vencimiento de la tarjeta ya fue superada.",
+      "solucionTexto": "Verificar la fecha de vencimiento de la tarjeta y utilizar una tarjeta vigente.",
+      "mensajeUsuario": "La tarjeta está vencida. Verificá la fecha de vencimiento o utilizá otra tarjeta.",
+      "fuente": "Documentación del proveedor de pagos",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "tarjeta vencida",
+        "tarjeta expirada",
+        "vencimiento",
+        "fecha de vencimiento",
+        "tarjeta caducada",
+        "medio de pago vencido"
+      ]
+    },
+    {
+      "codigo": "CVV_INVALIDO",
+      "servicio": "Tarjeta",
+      "problema": "El código de seguridad ingresado no coincide con el de la tarjeta.",
+      "solucionTexto": "Verificar el código de seguridad de la tarjeta e ingresarlo nuevamente.",
+      "mensajeUsuario": "El código de seguridad de la tarjeta no es válido. Verificá los datos e intentá nuevamente.",
+      "fuente": "Documentación del proveedor de pagos",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "cvv invalido",
+        "cvv incorrecto",
+        "codigo de seguridad",
+        "codigo de seguridad invalido",
+        "codigo incorrecto",
+        "cvc invalido",
+        "cvc incorrecto"
+      ]
+    },
+    {
+      "codigo": "TOKEN_EXPIRADO",
+      "servicio": "Autenticación",
+      "problema": "El token utilizado para autenticar la operación ya expiró.",
+      "solucionTexto": "Obtener un nuevo token de autenticación y repetir la operación.",
+      "mensajeUsuario": "Tu sesión de seguridad expiró. Volvé a iniciar sesión e intentá nuevamente.",
+      "fuente": "Documentación de la API",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "token expirado",
+        "token vencido",
+        "token caducado",
+        "token expiro",
+        "sesion expirada",
+        "sesion vencida",
+        "credencial expirada"
+      ]
+    },
+    {
+      "codigo": "TOKEN_INVALIDO",
+      "servicio": "Autenticación",
+      "problema": "El token proporcionado no es válido o no puede ser utilizado.",
+      "solucionTexto": "Verificar el token utilizado y generar uno nuevo si es necesario.",
+      "mensajeUsuario": "No pudimos validar tu sesión. Volvé a iniciar sesión e intentá nuevamente.",
+      "fuente": "Documentación de la API",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "token invalido",
+        "token incorrecto",
+        "token no valido",
+        "token rechazado",
+        "credencial invalida",
+        "sesion invalida"
+      ]
+    },
+    {
+      "codigo": "AUTENTICACION_FALLIDA",
+      "servicio": "Autenticación",
+      "problema": "El proceso de autenticación no pudo completarse correctamente.",
+      "solucionTexto": "Verificar las credenciales, el estado de la cuenta y los datos necesarios para completar la autenticación.",
+      "mensajeUsuario": "No pudimos verificar tu identidad. Verificá tus datos e intentá nuevamente.",
+      "fuente": "Documentación del servicio",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "autenticacion fallida",
+        "fallo de autenticacion",
+        "error de autenticacion",
+        "no se pudo autenticar",
+        "autenticacion incorrecta",
+        "login fallido",
+        "inicio de sesion fallido"
+      ]
+    },
+    {
+      "codigo": "CONEXION_FALLIDA",
+      "servicio": "Red",
+      "problema": "No fue posible establecer una conexión con el servicio requerido.",
+      "solucionTexto": "Verificar la conectividad de red y la disponibilidad del servicio e intentar nuevamente.",
+      "mensajeUsuario": "No pudimos conectarnos con el servicio. Verificá tu conexión e intentá nuevamente.",
+      "fuente": "Documentación técnica del servicio",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "conexion fallida",
+        "error de conexion",
+        "no se pudo conectar",
+        "conexion rechazada",
+        "sin conexion",
+        "conexion perdida",
+        "problema de red"
+      ]
+    },
+    {
+      "codigo": "ERROR_BANCO",
+      "servicio": "Banco",
+      "problema": "El banco informó un error al procesar la operación.",
+      "solucionTexto": "Verificar el estado del servicio bancario y consultar los detalles del error informado por el banco.",
+      "mensajeUsuario": "El banco informó un problema al procesar la operación. Esperá unos minutos y volvé a intentar.",
+      "fuente": "Documentación del banco",
+      "tipoFuente": "oficial",
+      "confirmada": false,
+      "palabrasClave": [
+        "error banco",
+        "error bancario",
+        "banco fallo",
+        "banco no responde",
+        "problema banco",
+        "servicio bancario",
+        "falla bancaria"
+      ]
+    },
+    {
+      "codigo": "ERROR_PROVEEDOR",
+      "servicio": "Proveedor",
+      "problema": "El proveedor externo utilizado para procesar la operación informó un error.",
+      "solucionTexto": "Verificar el estado del proveedor y consultar la información disponible sobre el error.",
+      "mensajeUsuario": "El servicio externo que necesitamos está teniendo problemas. Esperá unos minutos y volvé a intentar.",
+      "fuente": "Documentación del proveedor",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "error proveedor",
+        "proveedor fallo",
+        "proveedor caido",
+        "servicio externo",
+        "proveedor no responde",
+        "falla proveedor",
+        "error externo"
+      ]
+    },
+    {
+      "codigo": "ERROR_BASE_DATOS",
+      "servicio": "Base de datos",
+      "problema": "Se produjo un error al consultar o modificar información en la base de datos.",
+      "solucionTexto": "Verificar la conexión con la base de datos, los registros del servidor y el estado del servicio.",
+      "mensajeUsuario": "Ocurrió un problema al acceder a la información. Intentá nuevamente más tarde.",
+      "fuente": "Documentación técnica del sistema",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "error base de datos",
+        "base de datos",
+        "database error",
+        "database",
+        "conexion base de datos",
+        "fallo base de datos",
+        "no se pudo consultar"
+      ]
+    },
+    {
+      "codigo": "ERROR_CONFIGURACION",
+      "servicio": "Sistema",
+      "problema": "Existe una configuración incorrecta o faltante necesaria para ejecutar la operación.",
+      "solucionTexto": "Verificar las variables de configuración, credenciales, parámetros y valores requeridos por el sistema.",
+      "mensajeUsuario": "El sistema tiene un problema de configuración. Comunicate con Atención al Cliente para recibir asistencia.",
+      "fuente": "Documentación técnica del sistema",
+      "tipoFuente": "tecnica",
+      "confirmada": false,
+      "palabrasClave": [
+        "error configuracion",
+        "configuracion incorrecta",
+        "configuracion faltante",
+        "configuracion invalida",
+        "variable faltante",
+        "parametro faltante",
+        "configuracion"
+      ]
+    }
+  ]
+}
