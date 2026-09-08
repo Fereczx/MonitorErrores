@@ -392,26 +392,28 @@ Estado del proyecto
 🚧 En desarrollo
 
 Backend
- API REST
- Recepción de errores
- Base de conocimiento
- Búsqueda por código y servicio
- Búsqueda por mensaje
- Búsqueda por palabras clave
- Normalización de texto
- Validación de soluciones confirmadas
- Servicio de diagnóstico
- Integración con OpenAI
- Preparación para búsqueda web
- Análisis de imágenes
- Tests unitarios
-Frontend
- Interfaz de usuario
- Ingreso de errores
- Carga de capturas de pantalla
- Visualización del diagnóstico
- Visualización de la solución
- Mensaje de Atención al Cliente
+- [x] API REST
+- [x] Recepción de errores
+- [x] Base de conocimiento
+- [x] Búsqueda por código y servicio
+- [x] Búsqueda por mensaje
+- [x] Búsqueda por palabras clave
+- [x] Normalización de texto
+- [x] Validación de soluciones confirmadas
+- [x] Servicio de diagnóstico
+- [x] Integración con OpenAI
+- [x] Preparación para búsqueda web
+- [x] Análisis de imágenes
+- [x] Tests unitarios
+
+## Frontend
+
+- [ ] Interfaz de usuario
+- [ ] Ingreso de errores
+- [ ] Carga de capturas de pantalla
+- [ ] Visualización del diagnóstico
+- [ ] Visualización de la solución
+- [ ] Mensaje de Atención al Cliente
 
 -------------------------------------------------------------------------------
 
