@@ -43,11 +43,11 @@ public class DiagnosticoService
         }
 
         // 2. Si la IA no está disponible,
-        // no intentamos consultar la IA nuevamente.
+        // derivamos directamente a Atención al Cliente.
         if (error.Codigo == "IA_NO_DISPONIBLE")
         {
             Console.WriteLine(
-                "La IA no está disponible. No se realizará otra consulta.");
+                "La IA no está disponible. Se deriva a Atención al Cliente.");
 
             return new
             {
@@ -55,9 +55,12 @@ public class DiagnosticoService
                 codigo = error.Codigo,
                 servicio = error.Servicio,
                 problema = error.Mensaje,
-                solucion = "El servicio de diagnóstico mediante IA no está disponible actualmente. Intente nuevamente más tarde.",
-                fuente = "Sistema de diagnóstico",
-                confirmada = false
+                solucion = "",
+                mensajeUsuario =
+                    "No pudimos determinar una solución para este problema. Por favor, comunicate con Atención al Cliente para recibir asistencia.",
+                fuente = "",
+                tipoFuente = "",
+                solucionCompleta = false
             };
         }
 
