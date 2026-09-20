@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Monitor de Errores</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Botón para abrir el chat -->
+    <button id="chat-button" class="chat-button">
+        💬
+    </button>
+
+    <!-- Ventana del chat -->
+    <div id="chat-window" class="chat-window">
+
+        <!-- Encabezado -->
+        <div class="chat-header">
+            <div>
+                <strong>Monitor de Errores</strong>
+                <span>Asistente de soporte</span>
+            </div>
+
+            <div class="chat-actions">
+                <button id="minimize-chat" title="Minimizar">
+                    −
+                </button>
+
+                <button id="close-chat" title="Cerrar">
+                    ×
+                </button>
+            </div>
+        </div>
+
+        <!-- Mensajes -->
+        <div id="chat-messages" class="chat-messages">
+
+            <div class="bot-message-container">
+
+                <div class="bot-avatar">M</div>
+
+                <div class="message bot-message">Hola. ¿En qué puedo ayudarte?</div>
+
+            </div>
+
+        </div>
+        <!-- Vista previa de imagen -->
+        <div id="image-preview" class="image-preview">
+
+            <div class="image-preview-header">
+                <strong>Imagen seleccionada</strong>
+
+                <button
+                    id="remove-image"
+                    type="button"
+                    title="Quitar imagen">
+                    ×
+                </button>
+            </div>
+
+            <img
+                id="preview-image"
+                src=""
+                alt="Vista previa">
+
+            <div class="image-preview-footer">
+
+                <span id="image-name"></span>
+
+                <button
+                    id="analyze-image"
+                    type="button">
+                    Analizar imagen
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Área para escribir -->
+        <div class="chat-input-area">
+
+            <button id="attach-button" class="attach-button" title="Adjuntar imagen">
+                📎
+            </button>
+
+            <input
+                type="file"
+                id="image-input"
+                accept="image/*"
+                hidden
+            >
+
+            <textarea
+                id="message-input"
+                placeholder="Escribí tu problema..."
+                rows="1"
+            ></textarea>
+
+            <button id="send-button" class="send-button">
+                ➤
+            </button>
+
+        </div>
+
+    </div>
+    <!-- Visor de imagen ampliada -->
+    <div id="image-modal" class="image-modal">
+
+        <button
+            id="close-image-modal"
+            class="close-image-modal"
+            type="button"
+            title="Cerrar">
+            ×
+        </button>
+
+        <img
+            id="modal-image"
+            class="modal-image"
+            src=""
+            alt="Imagen ampliada">
+
+    </div>
+    <script src="js/app.js"></script>
+
+</body>
+</html>
