@@ -54,32 +54,42 @@ Base de conocimiento
 
 -------------------------------------------------------------------------------
 
-Características
-Recepción de errores mediante API REST.
-Búsqueda de soluciones en una base de conocimiento local.
-Búsqueda por código y servicio.
-Búsqueda por coincidencia del mensaje.
-Búsqueda mediante palabras clave.
-Normalización de texto.
-Ignora diferencias entre mayúsculas y minúsculas.
-Ignora diferencias de acentuación.
-Validación de soluciones confirmadas.
-Integración con OpenAI.
-Preparación para búsqueda web mediante IA.
-Priorización de documentación oficial.
-Análisis de capturas de pantalla de errores.
-Derivación a Atención al Cliente cuando no existe una solución
-completa y confiable.
-Pruebas unitarias mediante xUnit.
+## Características
+
+- Recepción de errores mediante API REST.
+- Búsqueda de soluciones en una base de conocimiento local.
+- Búsqueda por código y servicio.
+- Búsqueda por coincidencia del mensaje.
+- Búsqueda mediante palabras clave.
+- Normalización de texto.
+- Ignora diferencias entre mayúsculas y minúsculas.
+- Ignora diferencias de acentuación.
+- Validación de soluciones confirmadas.
+- Integración con OpenAI.
+- Búsqueda web mediante IA.
+- Priorización de documentación oficial.
+- Análisis de capturas de pantalla de errores.
+- Interfaz web tipo chat.
+- Envío de errores desde el frontend.
+- Carga y vista previa de capturas.
+- Ampliación de imágenes dentro de la interfaz.
+- Visualización del diagnóstico y la solución.
+- Indicador visual durante el análisis.
+- Derivación a Atención al Cliente cuando no existe una solución completa y confiable.
+- Pruebas unitarias mediante xUnit.
 
 
 -------------------------------------------------------------------------------
 
-Tecnologías
+## Tecnologías
+
 C#
 .NET 10
 ASP.NET Core Web API
 OpenAI API
+HTML
+CSS
+JavaScript
 xUnit
 PowerShell
 Git / GitHub
@@ -125,7 +135,57 @@ dotnet build
 
 
 -------------------------------------------------------------------------------
+## Ejecutar el frontend
 
+El frontend se encuentra dentro de la carpeta:
+
+MonitorErrores.Frontend/
+
+Está desarrollado con HTML, CSS y JavaScript.
+
+### 1. Ejecutar el backend
+
+Primero hay que iniciar la API.
+
+Desde la carpeta del proyecto:
+
+dotnet run
+
+2. Abrir el frontend
+
+Con el backend ejecutándose, abrir el archivo:
+
+MonitorErrores.Frontend/index.html
+
+Se puede abrir directamente desde el explorador de archivos o utilizando una extensión como Live Server en Visual Studio Code.
+
+3. Verificar la conexión
+
+El frontend está configurado para comunicarse con:
+
+http://localhost:5163/api/Errores
+
+y para analizar imágenes utiliza:
+
+http://localhost:5163/api/Errores/imagen
+
+Por lo tanto, el backend debe estar ejecutándose para que el chat pueda enviar los errores y recibir el diagnóstico.
+
+1. Ejecutar el backend
+        ↓
+   dotnet run
+        ↓
+2. Abrir index.html
+        ↓
+3. Utilizar el chat
+        ↓
+4. El frontend envía el error
+        ↓
+5. La API procesa el diagnóstico
+        ↓
+6. El frontend muestra el resultado
+
+-------------------------------------------------------------------------------
 Configuración de OpenAI
 
 La API Key no debe almacenarse directamente dentro de
@@ -236,8 +296,8 @@ Inteligencia Artificial
 Cuando no existe una solución confirmada en la base de conocimiento,
 el sistema puede consultar OpenAI.
 
-La integración está preparada para utilizar búsqueda web durante
-el análisis.
+La integración utiliza búsqueda web durante el análisis cuando
+es necesario obtener información externa.
 
 La información debe priorizarse en el siguiente orden:
 
@@ -270,7 +330,7 @@ MonitorErrores.Tests
 
 Se utiliza xUnit para realizar pruebas unitarias.
 
-Actualmente existen 13 pruebas.
+Actualmente existen 14 pruebas.
 
 Se prueban, entre otros casos:
 
@@ -288,6 +348,7 @@ Prioridad de la base de conocimiento.
 Consulta de IA cuando no existe una solución local.
 Derivación a Atención al Cliente cuando la IA no obtiene una
 solución completa.
+Derivación a Atención al Cliente cuando la IA no está disponible.
 
 Ejecutar las pruebas:
 
@@ -321,7 +382,12 @@ MonitorErrores/
 │   ├── ErrorService.cs
 │   ├── IAService.cs
 │   └── IIAService.cs
-│
+├── MonitorErrores.Frontend/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   └── app.js
+│   └── index.html
 ├── appsettings.json
 ├── appsettings.Development.json
 ├── MonitorErrores.csproj
@@ -331,45 +397,54 @@ MonitorErrores/
 
 -------------------------------------------------------------------------------
 
-Aplicación externa
-       |
-       | POST /api/errores
-       v
+## Arquitectura de la aplicación
+
+
+Usuario
+   |
+   v
+Frontend
+(HTML / CSS / JavaScript)
+   |
+   | HTTP
+   | POST /api/errores
+   | POST /api/errores/imagen
+   v
 ErroresController
-       |
-       v
+   |
+   v
 DiagnosticoService
-       |
-       v
+   |
+   v
 ErrorService
-       |
-       v
+   |
+   v
 ErrorKnowledgeService
-       |
-       +----------------------+
-       |                      |
-       v                      v
-Solución encontrada      No encontrada
-       |                      |
-       v                      v
-Devolver solución         IAService
-                              |
-                              v
-                         OpenAI API
-                              |
-                              v
-                       Búsqueda web
-                              |
-                              v
+   |
+   +----------------------+
+   |                      |
+   v                      v
+Solución encontrada    No encontrada
+   |                      |
+   v                      v
+Devolver solución      IAService
+                           |
+                           v
+                      OpenAI API
+                           |
+                           v
+                       Web Search
+                           |
+                           v
                     ¿Solución completa?
-                         |
-                  +------+------+
-                  |             |
-                 Sí            No
-                  |             |
-                  v             v
-             Solución       Atención
-                           al Cliente
+                       |
+                  +----+----+
+                  |         |
+                 Sí        No
+                  |         |
+                  v         v
+              Solución   Atención
+                         al Cliente
 
 -------------------------------------------------------------------------------
 
@@ -387,11 +462,12 @@ información sensible al repositorio.
 
 -------------------------------------------------------------------------------
 
-Estado del proyecto
+## Estado del proyecto
 
 🚧 En desarrollo
 
-Backend
+### Backend
+
 - [x] API REST
 - [x] Recepción de errores
 - [x] Base de conocimiento
@@ -402,31 +478,39 @@ Backend
 - [x] Validación de soluciones confirmadas
 - [x] Servicio de diagnóstico
 - [x] Integración con OpenAI
-- [x] Preparación para búsqueda web
+- [x] Búsqueda web mediante IA
 - [x] Análisis de imágenes
+- [x] Derivación a Atención al Cliente
+- [x] Inyección de dependencias mediante interfaces
+- [x] CORS
 - [x] Tests unitarios
 
-## Frontend
+### Frontend
 
-- [ ] Interfaz de usuario
-- [ ] Ingreso de errores
-- [ ] Carga de capturas de pantalla
-- [ ] Visualización del diagnóstico
-- [ ] Visualización de la solución
-- [ ] Mensaje de Atención al Cliente
+- [x] Interfaz de usuario
+- [x] Interfaz de chat
+- [x] Ingreso de errores
+- [x] Envío de errores al backend
+- [x] Carga de capturas de pantalla
+- [x] Vista previa de imágenes
+- [x] Ampliación de imágenes
+- [x] Indicador de análisis
+- [x] Visualización del diagnóstico
+- [x] Visualización de la solución
+- [x] Mensaje de Atención al Cliente
 
 -------------------------------------------------------------------------------
 
- Próximos pasos
-Finalizar la limpieza y validación del backend.
-Desarrollar la interfaz frontend.
-Integrar el frontend con la API.
-Realizar pruebas de integración.
-Configurar créditos de OpenAI para realizar pruebas reales.
-Verificar el comportamiento con errores reales de servicios de
-pagos.
-Incorporar y verificar soluciones reales en la base de
-conocimiento.
+## Próximos pasos
+
+- Verificar soluciones reales en la base de conocimiento.
+- Realizar pruebas completas de la integración con OpenAI.
+- Realizar pruebas reales de análisis de imágenes con créditos disponibles.
+- Mejorar la detección automática de códigos y servicios desde el frontend.
+- Resolver la advertencia de seguridad relacionada con `Microsoft.OpenApi`.
+- Realizar pruebas de integración completas.
+- Ampliar los tests según nuevas funcionalidades.
+- Verificar el comportamiento con errores reales de servicios de pagos.
                            
 -------------------------------------------------------------------------------
 
