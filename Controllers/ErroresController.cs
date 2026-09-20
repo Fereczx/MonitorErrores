@@ -9,16 +9,16 @@ namespace MonitorErrores.Controllers;
 public class ErroresController : ControllerBase
 {
     private readonly DiagnosticoService _diagnosticoService;
-    private readonly IAService _iaService;
+    private readonly IIAService _iaService;
 
     public ErroresController(
         DiagnosticoService diagnosticoService,
-        IAService iaService)
+        IIAService iaService)
     {
         _diagnosticoService = diagnosticoService;
         _iaService = iaService;
     }
-
+    
     [HttpPost]
     public async Task<IActionResult> Diagnosticar(
         [FromBody] Error error)
