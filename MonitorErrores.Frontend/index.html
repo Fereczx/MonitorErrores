@@ -82,6 +82,61 @@
 
         </div>
 
+        
+        <!-- Confirmación de los datos detectados -->
+        <div id="error-review" class="error-review">
+
+            <div class="error-review-header">
+                <strong>Revisá los datos detectados</strong>
+                <span>Corregilos si es necesario antes de continuar.</span>
+            </div>
+
+            <label for="review-code">Código del error</label>
+            <input
+                type="text"
+                id="review-code"
+                placeholder="Ej.: 404, TIMEOUT"
+            >
+
+            <label for="review-service">Servicio involucrado</label>
+            <select id="review-service">
+                <option value="General">General / No identificado</option>
+                <option value="Banco">Banco</option>
+                <option value="Pago">Pago</option>
+                <option value="Tarjeta">Tarjeta</option>
+                <option value="Autenticacion">Autenticación</option>
+            </select>
+            
+            <label for="review-situation">¿Qué sucede cuando intentás realizar la operación?</label>
+
+            <select id="review-situation">
+                <option value="">No estoy seguro</option>
+                <option value="rechazado">La operación es rechazada</option>
+                <option value="pendiente">La operación queda pendiente</option>
+                <option value="error">Aparece un mensaje de error</option>
+                <option value="sin_respuesta">La pantalla no responde</option>
+                <option value="otro">Sucede otra cosa</option>
+            </select>
+
+            <label for="review-message">Mensaje original</label>
+            <textarea
+                id="review-message"
+                rows="4"
+                placeholder="Mensaje de error recibido"
+            ></textarea>
+
+            <div class="error-review-actions">
+                <button id="cancel-review" type="button">
+                    Cancelar
+                </button>
+
+                <button id="confirm-review" type="button">
+                    Confirmar y analizar
+                </button>
+            </div>
+
+        </div>
+
         <!-- Área para escribir -->
         <div class="chat-input-area">
 

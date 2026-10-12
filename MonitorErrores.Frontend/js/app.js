@@ -16,6 +16,22 @@ const imagePreview = document.getElementById("image-preview");
 const previewImage = document.getElementById("preview-image");
 const imageName = document.getElementById("image-name");
 
+
+
+
+
+// Panel de revisión del error
+const errorReview = document.getElementById("error-review");
+const reviewCode = document.getElementById("review-code");
+const reviewService = document.getElementById("review-service");
+const reviewMessage = document.getElementById("review-message");
+const reviewSituation = document.getElementById("review-situation");
+const cancelReviewButton = document.getElementById("cancel-review");
+const confirmReviewButton = document.getElementById("confirm-review");
+
+// Ocultar el panel hasta que se envíe un mensaje
+errorReview.style.display = "none";
+
 const removeImageButton =
     document.getElementById("remove-image");
 
@@ -321,100 +337,100 @@ messageInput.addEventListener(
 // ENVIAR MENSAJE A LA API
 // =========================
 
-async function enviarMensaje() {
 
-    const mensaje =
-        messageInput.value.trim();
+function enviarMensaje() {
+    const mensaje = messageInput.value.trim();
 
     if (mensaje === "") {
         return;
     }
 
-    agregarMensajeUsuario(
-        mensaje
-    );
+    // Detectar los datos iniciales
+    reviewCode.value = detectarCodigo(mensaje);
+    reviewService.value = detectarServicio(mensaje);
+    reviewMessage.value = mensaje;
 
+    // Mostrar el panel de revisión
+    errorReview.style.display = "block";
+
+    // Limpiar el área de escritura
     messageInput.value = "";
+
+    // Llevar el panel a la vista
+    errorReview.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+    });
+}
+
+// Cancelar la revisión
+cancelReviewButton.addEventListener("click", () => {
+    // Recuperar el mensaje para que el usuario pueda editarlo
+    messageInput.value = reviewMessage.value;
+
+    errorReview.style.display = "none";
+    messageInput.focus();
+});
+
+// Confirmar los datos y ejecutar el diagnóstico
+
+ // Confirmar los datos y ejecutar el diagnóstico
+confirmReviewButton.addEventListener("click", async () => {
+    const situacion = reviewSituation.value;
+
+    const error = {
+        codigo: reviewCode.value.trim(),
+        servicio: reviewService.value,
+        mensaje: reviewMessage.value.trim()
+    };
+
+    if (error.mensaje === "") {
+        agregarMensajeBot(
+            "Ingresá un mensaje de error antes de continuar."
+        );
+        return;
+    }
+
+    if (situacion !== "") {
+        error.mensaje +=
+            "\nSituación indicada por el usuario: " +
+            reviewSituation.options[
+                reviewSituation.selectedIndex
+            ].text;
+    }
+
+    // Ocultar el panel y mostrar el mensaje enviado
+    errorReview.style.display = "none";
+    agregarMensajeUsuario(error.mensaje);
 
     setEstadoEnvio(false);
 
-    // Mostrar indicador de análisis
-    const mensajeCarga =
-        agregarMensajeAnalizando();
+    const mensajeCarga = agregarMensajeAnalizando();
 
     try {
-
-        const error = {
-
-            codigo:
-                detectarCodigo(
-                    mensaje
-                ),
-
-            servicio:
-                detectarServicio(
-                    mensaje
-                ),
-
-            mensaje:
-                mensaje
-        };
-
-        console.log(
-            "Enviando error al backend:",
-            error
-        );
-
-        const respuesta =
-            await fetch(
-                API_URL,
-                {
-                    method: "POST",
-
-                    headers: {
-                        "Content-Type":
-                            "application/json"
-                    },
-
-                    body:
-                        JSON.stringify(
-                            error
-                        )
-                }
-            );
+        const respuesta = await fetch(API_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(error)
+        });
 
         if (!respuesta.ok) {
-
-            throw new Error(
-                `Error HTTP ${respuesta.status}`
-            );
+            throw new Error(`Error HTTP ${respuesta.status}`);
         }
 
-        const resultado =
-            await respuesta.json();
+        const resultado = await respuesta.json();
 
-        console.log(
-            "Respuesta del backend:",
-            resultado
-        );
-
-        // Quitar indicador
         mensajeCarga.remove();
-
-        // Mostrar resultado
-        mostrarResultado(
-            resultado
-        );
-
+        mostrarResultado(resultado);
     }
     catch (error) {
-
         console.error(
             "Error comunicándose con el backend:",
             error
         );
 
-        // Quitar indicador
         mensajeCarga.remove();
 
         agregarMensajeBot(
@@ -422,12 +438,12 @@ async function enviarMensaje() {
         );
     }
     finally {
-
         setEstadoEnvio(true);
-
         messageInput.focus();
     }
-}
+});
+
+
 
 
 // =========================
