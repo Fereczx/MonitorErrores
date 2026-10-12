@@ -70,10 +70,14 @@ public class DiagnosticoService
             error.Servicio,
             error.Mensaje);
 
-        if (respuestaIA == null || !respuestaIA.SolucionCompleta)
+
+
+        if (respuestaIA == null ||
+            string.IsNullOrWhiteSpace(respuestaIA.Solucion) ||
+            string.IsNullOrWhiteSpace(respuestaIA.MensajeUsuario))
         {
             Console.WriteLine(
-                "La IA no encontró una solución completa y confiable.");
+                "La IA no encontró una solución utilizable.");
 
             return new
             {
@@ -88,10 +92,12 @@ public class DiagnosticoService
                 tipoFuente = respuestaIA?.TipoFuente ?? "",
                 solucionCompleta = false
             };
+        
+
         }
 
         Console.WriteLine(
-            "La IA encontró una solución completa y confiable.");
+            "La IA generó una respuesta con solución y fuente.");
 
         return new
         {
@@ -103,7 +109,8 @@ public class DiagnosticoService
             mensajeUsuario = respuestaIA.MensajeUsuario,
             fuente = respuestaIA.Fuente,
             tipoFuente = respuestaIA.TipoFuente,
-            solucionCompleta = true
+            solucionCompleta = respuestaIA.SolucionCompleta
         };
+
     }
 }

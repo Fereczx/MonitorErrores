@@ -87,16 +87,38 @@ public class ErroresController : ControllerBase
         Console.WriteLine(
             $"Problema detectado: {diagnostico.Problema}");
 
-        var error = new Error
-        {
-            Codigo = diagnostico.Codigo,
-            Servicio = diagnostico.Servicio,
-            Mensaje = diagnostico.Problema
-        };
 
-        var resultado =
-            await _diagnosticoService.Diagnosticar(error);
+if (
+    diagnostico.Codigo == "IMAGEN_NO_VALIDA" ||
+    (
+        string.IsNullOrWhiteSpace(diagnostico.Codigo) &&
+        string.IsNullOrWhiteSpace(diagnostico.Servicio) &&
+        string.IsNullOrWhiteSpace(diagnostico.Problema)
+    )
+)
+{
+    Console.WriteLine(
+        "Imagen rechazada: no contiene un error técnico identificable.");
 
-        return Ok(resultado);
+    return BadRequest(new
+    {
+        origen = "validacion",
+        imagenValida = false,
+        mensaje = "La imagen no parece contener un error técnico relacionado con la aplicación. Enviá una captura de pantalla donde se vea el mensaje de error."
+    });
+}
+
+    var error = new Error
+    {
+        Codigo = diagnostico.Codigo,
+        Servicio = diagnostico.Servicio,
+        Mensaje = diagnostico.Problema
+    };
+
+    var resultado =
+        await _diagnosticoService.Diagnosticar(error);
+
+    return Ok(resultado);
+
     }
 }

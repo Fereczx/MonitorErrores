@@ -910,3 +910,81 @@ body {
         width: 100%;
     }
 }
+/* =========================================
+   MENSAJE DEL USUARIO CON CONTEXTO
+   ========================================= */
+
+.user-message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    align-self: flex-end;
+    gap: 6px;
+    max-width: 88%;
+}
+
+.user-message-container .user-message {
+    width: fit-content;
+    max-width: 100%;
+}
+
+/* Bloque de información adicional */
+.user-context {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #c9dced;
+    border-radius: 10px;
+    background: #edf5fc;
+    color: #263238;
+    font-size: 12px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.user-context strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #174a7e;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.user-context p {
+    margin: 0 0 8px;
+    color: #374151;
+}
+
+.user-context-answer {
+    padding: 7px 9px;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #174a7e;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+/* Estabilizar el botón flotante del chat */
+#chat-button {
+    position: fixed !important;
+    right: 24px !important;
+    bottom: 24px !important;
+    left: auto !important;
+    top: auto !important;
+
+    width: 58px !important;
+    height: 58px !important;
+    min-width: 58px !important;
+    min-height: 58px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    box-sizing: border-box !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1000;
+    flex-shrink: 0;
+}
